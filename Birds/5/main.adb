@@ -16,7 +16,7 @@ begin
             M(I, J) := 5;
             Put(Integer'Image(M(I,J)));
          else
-            M(I,J) := 1;
+            M(I,J) := 0;
             Put(Integer'Image(M(I,J)));
          end if;
          end loop;
