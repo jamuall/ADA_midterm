@@ -1,0 +1,112 @@
+Background: 
+
+ 
+
+You have been tasked with creating an application to manage the daily flights of an airline. The airline needs the application to keep track of the type of aircraft and number of passengers for each flight, the operating cost and revenue of each flight, as well as the total revenue and costs of the airline. 
+
+ 
+
+Task Description: 
+
+ 
+
+Implement a Flight as a private type: 
+
+ 
+
+Each Flight stores the following data: 
+
+Aircraft Type 
+Departure City 
+Arrival City 
+Ticket Cost of the flight of type Float 
+Operating Cost of the flight of type Float 
+ 
+
+Use the following enumerator for the Aircraft Type: 
+
+            type TAircraft is (A320, B787, A350, B777, A380); 
+
+            for TAircraft use (144, 311, 395, 412, 517); 
+
+The top line refers to the type of aircraft and the bottom line is the number of seats for each aircraft. To get the defined value of an enumerator you can use: 
+
+EnumType’Enum_Rep(Enum) 
+
+ 
+
+Formula for calculating the Operating cost of the flight: 
+
+abs( length of Departure City – length of Arrival City) * Number of passengers * 50 * Multiplier 
+
+ 
+
+Multiplier refers to whether the aircraft is a widebody or not. If the aircraft is a widebody, the value of multiplier := 2, otherwise it is 1. 
+
+ 
+
+Implement the following functions and procedures as an interface for the flight: 
+
+Getters for all 5 attributes. 
+Getter for the number of passengers. 
+Setter for the Ticket Cost. 
+Procedure to modify the Ticket Cost by a certain amount. 
+Procedure to print all the data of the flight in JSON format. 
+Procedure to create a new Flight from the type of aircraft, name of the departure city, name of the arrival city, Ticket Cost of the flight, a Boolean flag whether or not the aircraft is a widebody or not. 
+ 
+
+If you want to implement any other functions or procedures, they must be private. 
+
+ 
+
+You may add extra attributes to the Flight to keep track of extra data, but the 5 listed above are mandatory and the procedure to create a new Flight should have the same parameter signature as listed above. 
+
+ 
+
+Implement Airline as generic and private: 
+
+ 
+
+The Airline should store the following data: 
+
+Name. 
+List of flights as an array where both the Index and Elem are generic. 
+Revenue of type Dollars -> initialized to 0.0. 
+Total Costs of type Dollars -> initialized to 0.0. 
+Total Number of Passengers of type Natural -> initialized to 0. 
+ 
+
+Dollars is a new type derived from Float from 0 to last index of Float. 
+
+ 
+
+The Airline Type should have a parameter passed to it which is the maximum number of flights allowed which will limit the size of the flights array. 
+
+ 
+
+Implement the following functions and procedures as an interface for the Airline inside the generic package: 
+
+Operation which receives an array of flights and adds it to the Airline – make sure to only add flights until the maximum number of flights is reached. If more no more flights can be added, the operation should inform the user. 
+Operation which tells the user whether the Airline has made a Profit or a Loss. The profit or loss can be calculated with: Revenue – Total Costs. Operation should return a Float value. 
+Procedure which prints the data of the Airline in JSON format. 
+Procedure which creates a new Airline with name of the Airline received as a parameter. 
+A generic operation which records a flight and takes a generic function or procedure that determines the condition required to record the flight: 
+For each recorded flight:  
+The revenue of the flight (Ticket Cost * Number of passengers) must be added to the Airline Revenue 
+The Operating Cost of the flight must be added to the Airline Total Costs. 
+The number of passengers of the flight must be added to the Airline Total Number of Passengers. 
+Remove the registered flight from the Airline array of flights. 
+One possible way to record a flight is to check if the Flight has the same Departure and Arrival Cities as entered by the user. 
+A generic operation which applies some function to each Flight of the Airline. 
+ 
+
+You may add extra attributes to the Airline to keep track of extra data, but the 5 listed above are mandatory and the procedure to create a new Airline should have the same parameter signature as listed above. Any extra procedures / functions added must be private. 
+
+ 
+
+Do extensive testing within the Main program to show all features working as intended as well as error checking where needed (Such as adding too many flights to the airline).  
+
+ 
+
+Submit your program in a zip folder which contains all source files, the main test file and the project file. 
+
